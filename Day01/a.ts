@@ -15,10 +15,23 @@ async function main() {
 
   input = await readFileAsync("./input.txt");
 
-  const parsedInput: string[] = input.split("\n").flatMap(pair => pair.split(" ").filter(s => s));
-  const left: number[] = parsedInput.map(s => parseInt(s)).filter((_, idx) => idx % 2 === 0).sort();
-  const right: number[] = parsedInput.map(s => parseInt(s)).filter((_, idx) => idx % 2 !== 0).sort();
-  const result: number = left.map((value, idx) => Math.abs(value - right[idx])).reduce((prev, curr) => prev + curr);
+  const parsedInput: string[] = input
+    .split("\n")
+    .flatMap(pair => pair.split(" ").filter(s => s));
+
+  const left: number[] = parsedInput
+    .map(s => parseInt(s))
+    .filter((_, idx) => idx % 2 === 0)
+    .sort();
+
+  const right: number[] = parsedInput
+    .map(s => parseInt(s))
+    .filter((_, idx) => idx % 2 !== 0)
+    .sort();
+
+  const result: number = left
+    .map((value, idx) => Math.abs(value - right[idx]))
+    .reduce((prev, curr) => prev + curr);
 
   console.log(result);
 }
