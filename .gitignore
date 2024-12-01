@@ -1,0 +1,17 @@
+node_modules/
+
+dist/
+*.js
+*.js.map
+
+.vscode/
+*.code-workspace
+
+yarn.lock
+package-lock.json
+
+.env
+.env.local
+.env.development
+.env.test
+.env.production
